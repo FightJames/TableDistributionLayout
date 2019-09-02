@@ -2,19 +2,24 @@ package com.numbertech.tag
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var i: Int = 1
-        var k = i++ + i
-        // 測試區
-//        var value1
+        for (i in 0..30) {
+            tableDistributionLayout.addView(TextView(this).apply {
+                text = i.toString()
+            })
+        }
+        button.setOnClickListener {
+            if (editText.text.isNullOrEmpty().not()) {
+                tableDistributionLayout.columnCount = editText.text.toString().toInt()
+                tableDistributionLayout.requestLayout()
+            }
+        }
     }
-
-    fun isOdd(input: Int): Boolean = (input and 1) == 1
-
-
 }
