@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':tabledistributionlayoutlib'
 rootProject.name='My Application'
