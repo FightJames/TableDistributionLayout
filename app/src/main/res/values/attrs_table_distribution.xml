@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NumberTechTableDistribution">
+        <attr name="columnCount" format="integer" />
+        <attr name="itemSpaceWidth" format="dimension" />
+        <attr name="itemSpaceHeight" format="dimension" />
+    </declare-styleable>
+</resources>
+
