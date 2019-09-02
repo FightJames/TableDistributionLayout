@@ -71,8 +71,9 @@ class TableDistributionLayout : ViewGroup {
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        var occupancyWidth = l
-        var occupancyHeight = t
+        Log.d("top", " $t")
+        var occupancyWidth = 0
+        var occupancyHeight = 0
         var eachLineMaxHeight = 0
         when (mode) {
             Mode.FIXED -> {
@@ -92,7 +93,7 @@ class TableDistributionLayout : ViewGroup {
                         )
                         occupancyHeight += eachLineMaxHeight + itemSpaceHeight
                         eachLineMaxHeight = 0
-                        occupancyWidth = l
+                        occupancyWidth = 0
                         continue
                     }
 
