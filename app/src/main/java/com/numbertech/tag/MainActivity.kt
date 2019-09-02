@@ -1,9 +1,9 @@
 package com.numbertech.tag
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,10 +29,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
         button.setOnClickListener {
-            if (editText.text.isNullOrEmpty().not()) {
-                tableDistributionLayout.columnCount = editText.text.toString().toInt()
-                tableDistributionLayout.requestLayout()
+            if (count.text.isNullOrEmpty().not()) {
+                tableDistributionLayout.columnCount = count.text.toString().toInt()
             }
+
+            if (widthSpace.text.isNullOrEmpty().not()) {
+                tableDistributionLayout.itemSpaceWidth = widthSpace.text.toString().toInt()
+            }
+
+            if (heightSpace.text.isNullOrEmpty().not()) {
+                tableDistributionLayout.itemSpaceHeight = heightSpace.text.toString().toInt()
+            }
+            tableDistributionLayout.requestLayout()
         }
     }
 }

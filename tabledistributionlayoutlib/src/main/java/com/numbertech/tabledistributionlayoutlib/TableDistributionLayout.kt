@@ -57,15 +57,18 @@ class TableDistributionLayout : ViewGroup {
                 //calculate all child view height and width
                 measureChildren(widthMeasureSpec, heightMeasureSpec);
                 var height = 0
+                var eachLineMaxHeight = 0
                 for (i in 0 until childCount) {
                     var childView = getChildAt(i)
-                    height += childView.measuredHeight
+                    eachLineMaxHeight = Math.max(childView.measuredHeight, eachLineMaxHeight)
+                    if (i % columnCount == (columnCount - 1)) {
+                        height += eachLineMaxHeight + itemSpaceHeight
+                        eachLineMaxHeight = 0;
+                    }
                 }
-                if (heightMode == LayoutParams.WRAP_CONTENT) {
-                    setMeasuredDimension(sizeWidth, height)
-                } else {
-                    setMeasuredDimension(sizeWidth, sizeHeight)
-                }
+                Log.d("height ", height.toString() + "  " + sizeHeight.toString())
+                Log.d("height mode ", (heightMode == MeasureSpec.EXACTLY).toString())
+                setMeasuredDimension(sizeWidth, height)
             }
         }
     }
